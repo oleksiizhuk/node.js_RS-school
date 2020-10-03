@@ -1,0 +1,24 @@
+{
+  "name": "node.js_rs-school",
+  "version": "1.0.0",
+  "description": "course on node.js on Rs school",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "nodemon": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleksiizhuk/node.js_RS-school.git"
+  },
+  "author": "oleksii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oleksiizhuk/node.js_RS-school/issues"
+  },
+  "homepage": "https://github.com/oleksiizhuk/node.js_RS-school#readme",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
