@@ -1,8 +1,9 @@
-const caesarCipher = require('./services/caesarCipher')
 const fs = require('fs');
 const {pipeline, Transform} = require('stream');
 const {program} = require('commander');
-const {isValidateKey} = require('./services/validator');
+const process = require('process')
+const {isValidateKey, isValidPath, isValidParams} = require('./services/validator');
+const caesarCipher = require('./services/caesarCipher')
 const {DECODE, ENCODE, UTF8} = require('./constants/constants');
 program.storeOptionsAsProperties(true);
 program
@@ -12,26 +13,21 @@ program
   .option('-o, --output <value>', 'output.path');
 program.parse(process.argv);
 
-console.log(`shift:     ${program.shift}`)
-console.log(`input:     ${program.input}`)
-console.log(`output:    ${program.output}`)
-console.log(`action:    ${program.action}`)
-
 const {input, output, action, shift} = program;
-console.log(input, output, action, shift);
+// console.log('program - ', input, output, action, shift);
 
 const checkCommandParams = () => {
+
   if (!isValidateKey(shift)) {
-    console.log(1);
-    return;
+    process.exit(1)
   }
-  if (!fs.statSync(input).isFile() || !fs.statSync(output).isFile()) {
-    console.log(2);
-    return;
+
+  if (!isValidPath(input, output)) {
+    process.exit(1)
   }
-  if (action === DECODE || action === ENCODE) {
-    console.log(3, action)
-    // return;
+
+  if (!isValidParams(action)) {
+    process.exit(1)
   }
 
   const newTransform = new Transform({
@@ -51,6 +47,7 @@ const checkCommandParams = () => {
     (err) => {
       if (err) {
         console.error('Pipeline failed.', err);
+        process.exit(1)
       } else {
         console.log('Pipeline succeeded.');
       }
@@ -59,3 +56,8 @@ const checkCommandParams = () => {
 };
 
 checkCommandParams(input, output, action, shift);
+
+
+// 6 если не передан аргумент с путем до файла на чтение, то чтение осуществляется из process.stdin
+// 7 если не передан аргумент с путем до файла на запись, то вывод осуществляется в process.stdout
+// 9 если текст вводится из консоли, то программа не должна завершаться после выполнения шифровки/дешифровки введенного текста, т.е. должна быть возможность ввести еще текст
