@@ -20,27 +20,3 @@ module.exports.isValidParams = (params) => {
   console.error('is error action');
   return false;
 };
-
-module.exports.isValidPath = (input, output) => {
-  if(!fs.existsSync(input)) {
-    console.log('file not found input')
-    return false;
-  }
-  if(!fs.existsSync(output)) {
-    console.log('file not found input')
-    return false;
-  }
-  return true;
-}
-
-module.exports.checkPath = (path) => {
-  return new Promise((res, rej) => {
-    fs.access(path, (err) => {
-      if (err) {
-        console.error(err)
-        return rej(err);
-      }
-      res(true);
-    });
-  })
-}
