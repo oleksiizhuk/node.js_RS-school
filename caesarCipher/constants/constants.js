@@ -6,5 +6,5 @@ module.exports = {
   ALPHABET_LENGTH: 26,
   DECODE: 'decode',
   ENCODE: 'encode',
+  UTF8: 'utf8'
 };
-

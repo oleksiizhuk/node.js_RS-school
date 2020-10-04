@@ -1,65 +1,61 @@
-const {
-  ALPHABET_LENGTH,
-  DECODE,
-  ENCODE,
-  ASCII_BIG_A,
-  ASCII_BIG_Z,
-  ASCII_SMALL_A,
-  ASCII_SMALL_Z
-} = require('./constants/constants');
+const caesarCipher = require('./services/caesarCipher')
+const fs = require('fs');
+const {pipeline, Transform} = require('stream');
+const {program} = require('commander');
+const {isValidateKey} = require('./services/validator');
+const {DECODE, ENCODE, UTF8} = require('./constants/constants');
+program.storeOptionsAsProperties(true);
+program
+  .option('-s, --shift <value>', 'int val', v => parseInt(v, 10), 0)
+  .option('-a, --action <value>')
+  .option('-i, --input <value>', 'input path')
+  .option('-o, --output <value>', 'output.path');
+program.parse(process.argv);
 
-const caesarCipher = (userParam, userKey, str) => {
-  if(isValidateKey(userKey) && isValidParam(userParam) ) {
-    console.log('didnt valid')
+console.log(`shift:     ${program.shift}`)
+console.log(`input:     ${program.input}`)
+console.log(`output:    ${program.output}`)
+console.log(`action:    ${program.action}`)
+
+const {input, output, action, shift} = program;
+console.log(input, output, action, shift);
+
+const checkCommandParams = () => {
+  if (!isValidateKey(shift)) {
+    console.log(1);
     return;
   }
-  const key = userKey % ALPHABET_LENGTH;
+  if (!fs.statSync(input).isFile() || !fs.statSync(output).isFile()) {
+    console.log(2);
+    return;
+  }
+  if (action === DECODE || action === ENCODE) {
+    console.log(3, action)
+    // return;
+  }
 
-  const result = str.split('').map((letter) => {
-    if (!isValidateText(letter)) {
-      return letter;
+  const newTransform = new Transform({
+      transform(chunk, encoding, callback) {
+        console.log('chunk - ', chunk.toString());
+        console.log('shift - ', shift);
+        const newData = caesarCipher.caesarCipher(chunk.toString(), shift, action);
+        callback(null, newData);
+      }
     }
-    const asciiLetter = letter.charCodeAt();
-    return code(param, asciiLetter, key, isLowerCase(asciiLetter))
-  });
-  console.log('result - ', result.join(''));
+  );
+
+  pipeline(
+    fs.createReadStream(input, UTF8),
+    newTransform,
+    fs.createWriteStream(output, {encoding: UTF8, flags: 'a+'}),
+    (err) => {
+      if (err) {
+        console.error('Pipeline failed.', err);
+      } else {
+        console.log('Pipeline succeeded.');
+      }
+    }
+  )
 };
 
-const isValidParam = (params) => {
-  if (params === DECODE || params === ENCODE) {
-    return true;
-  }
-  console.log('not valid params');
-  return false;
-};
-
-const isValidateKey = (key) => {
-  if (typeof key !== 'number') {
-    console.log('key is not number');
-    return false;
-  }
-  if (key < 0) {
-    console.log("key isn't to be negative number")
-    return false;
-  }
-  return true;
-}
-
-const code = (params, asciiLetter, key, isLowerCase) => {
-  const flag = isLowerCase ? 97 : 65;
-  if (params === DECODE) {
-    return String.fromCharCode((asciiLetter + key - flag) % ALPHABET_LENGTH + flag);
-  } else {
-    return String.fromCharCode((asciiLetter + key - flag) % ALPHABET_LENGTH + flag);
-  }
-}
-
-
-const isLowerCase = (asciiLetter) => (asciiLetter >= ASCII_SMALL_A && asciiLetter <= ASCII_SMALL_Z);
-
-const isValidateText = (asciiLetter) => (
-  asciiLetter >= ASCII_BIG_A && asciiLetter <= ASCII_BIG_Z ||
-  asciiLetter >= ASCII_SMALL_A && asciiLetter <= ASCII_SMALL_Z
-);
-
-caesarCipher('decode', 'a', 'HELLO hello AZ az ()_9_0_() Привет!');
+checkCommandParams(input, output, action, shift);
