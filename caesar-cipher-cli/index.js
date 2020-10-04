@@ -9,7 +9,7 @@ program
   .option('-s, --shift <value>', 'int val', v => parseInt(v, 10), 0)
   .option('-a, --action <value>')
   .option('-i, --input <value>', 'input path')
-  .option('-o, --output <value>', 'output.path');
+  .option('-o, --output <value>', 'output path');
 program.parse(process.argv);
 
 const { input, output, action, shift } = program;
@@ -25,7 +25,7 @@ const main = () => {
   const newTransform = new Transform({
       transform(chunk, encoding, callback) {
         const newData = caesarCipher.caesarCipher(chunk.toString(), shift, action);
-        callback(null, newData);
+        callback(null, newData.replace(/\r?\n|\r/g, " "));
       }
     }
   );
