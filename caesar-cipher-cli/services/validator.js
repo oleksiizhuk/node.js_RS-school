@@ -1,5 +1,4 @@
-const fs = require('fs');
-const {DECODE, ENCODE} = require('../constants/constants');
+const { DECODE, ENCODE } = require('../constants/constants');
 
 module.exports.isValidateKey = (key) => {
   if (typeof key !== 'number' || isNaN(key)) {
@@ -14,7 +13,7 @@ module.exports.isValidateKey = (key) => {
 }
 
 module.exports.isValidParams = (params) => {
-  if(params === DECODE || params === ENCODE) {
+  if (params === DECODE || params === ENCODE) {
     return true
   }
   console.error('is error action');

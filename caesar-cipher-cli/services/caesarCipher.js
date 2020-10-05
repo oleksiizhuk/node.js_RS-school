@@ -9,7 +9,7 @@ const {
 
 module.exports.caesarCipher = (str, userKey, userParam) => {
   const key = userKey % ALPHABET_LENGTH;
-  const result = str.split('').map((letter ) => {
+  const result = str.split('').map((letter) => {
     if (!isValidateText(letter.charCodeAt())) {
       return letter;
     }
