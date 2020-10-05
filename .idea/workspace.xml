@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2ba91e64-c108-4fcd-bb8a-046e46501667" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caesar-cipher-cli/services/caesarCipher.js" beforeDir="false" afterPath="$PROJECT_DIR$/caesar-cipher-cli/services/caesarCipher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caesar-cipher-cli/services/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/caesar-cipher-cli/services/validator.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1i9XnnFU3suMQMNeCmwbrxpFNza" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.18.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.12.62" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/caesarCipher" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ba91e64-c108-4fcd-bb8a-046e46501667" name="Default Changelist" comment="" />
+      <created>1601320950869</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601320950869</updated>
+      <workItem from="1601320951963" duration="586000" />
+      <workItem from="1601712270352" duration="56513000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="609" y="357" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601809388535">
+      <screen x="0" y="23" width="1792" height="1050" />
+    </state>
+    <state x="609" y="357" key="#com.intellij.fileTypes.FileTypeChooser/-1920.63.1920.1057/0.23.1792.1050@0.23.1792.1050" timestamp="1601809388535" />
+    <state x="51" y="187" key="SettingsEditor" timestamp="1601728572506">
+      <screen x="0" y="23" width="1792" height="1050" />
+    </state>
+    <state x="51" y="187" key="SettingsEditor/-1920.63.1920.1057/0.23.1792.1050@0.23.1792.1050" timestamp="1601728572506" />
+    <state x="594" y="386" width="604" height="490" key="find.popup" timestamp="1601839016343">
+      <screen x="0" y="23" width="1792" height="1050" />
+    </state>
+    <state x="594" y="386" width="604" height="490" key="find.popup/-1920.63.1920.1057/0.23.1792.1050@0.23.1792.1050" timestamp="1601839016343" />
+    <state x="171" y="254" width="670" height="675" key="run.anything.popup" timestamp="1601724391226">
+      <screen x="0" y="23" width="1792" height="1050" />
+    </state>
+    <state x="171" y="254" width="670" height="675" key="run.anything.popup/-1920.63.1920.1057/0.23.1792.1050@0.23.1792.1050" timestamp="1601724391226" />
+    <state x="561" y="256" width="670" height="676" key="search.everywhere.popup" timestamp="1601796690289">
+      <screen x="0" y="23" width="1792" height="1050" />
+    </state>
+    <state x="561" y="256" width="670" height="676" key="search.everywhere.popup/-1920.63.1920.1057/0.23.1792.1050@0.23.1792.1050" timestamp="1601796690289" />
+  </component>
+</project>
